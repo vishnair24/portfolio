@@ -1,0 +1,50 @@
+
+<style>
+  /* 1. Embedded Styles*/
+  #wd-action-btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #f0f0f0;
+    font-family: inherit;
+    margin: 10px 0;
+  }
+
+  body.wd-contrast-active {
+    background-color: #1a1a1a !important;
+    color: #eaeaea !important;
+  }
+
+  body.wd-contrast-active a {
+    color: #64b5f6 !important;
+  }
+</style>
+
+<!-- 2. Elements to Display -->
+<p id="wd-time-msg"></p>
+<button type="button" id="wd-action-btn">Toggle View</button>
+
+<!-- 3. JavaScript Logic -->
+<script>
+  // Dynamic greeting based on current time
+  const greetingEl = document.getElementById('wd-time-msg');
+  if (greetingEl) {
+    const currentHour = new Date().getHours();
+    let statusText = 'Welcome!';
+    if (currentHour < 12) statusText = 'Good morning, welcome to my site!';
+    else if (currentHour < 18) statusText = 'Good afternoon, welcome to my site!';
+    else statusText = 'Good evening, welcome to my site!';
+    greetingEl.textContent = statusText;
+  }
+
+  // Visual mode switcher
+  const modeBtn = document.getElementById('wd-action-btn');
+  if (modeBtn) {
+    modeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('wd-contrast-active');
+    });
+  }
+</script>
+
+<!-- =================================================================== -->
